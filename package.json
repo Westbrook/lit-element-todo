@@ -1,0 +1,18 @@
+{
+  "name": "react-todo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@polymer/lit-element": "~0.6.1",
+    "@webcomponents/webcomponentsjs": "^2.0.0"
+  },
+  "devDependencies": {
+    "polymer-cli": "^1.7.1"
+  },
+  "scripts": {
+    "start": "polymer serve",
+    "build": "polymer build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
