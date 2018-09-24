@@ -75,7 +75,7 @@ export class ToDo extends LitElement {
             (item, key) => {
               return html`
                 <to-do-item
-                  .item=${item.todo}
+                  item=${item.todo}
                   .deleteItem=${this.deleteItem.bind(this, key)}
                 ></to-do-item>
               `;
