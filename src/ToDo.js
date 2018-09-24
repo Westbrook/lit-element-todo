@@ -49,6 +49,7 @@ export class ToDo extends LitElement {
   }
 
   handleInput(e) {
+    console.log('handle');
     this.todo = e.target.value;
   }
 
@@ -86,7 +87,7 @@ export class ToDo extends LitElement {
           <input
             type="text"
             .value=${this.todo}
-            @change=${this.handleInput}
+            @input=${this.handleInput}
             @keypress=${this.handleKeyPress}
           />
           <button
