@@ -49,7 +49,6 @@ export class ToDo extends LitElement {
   }
 
   handleInput(e) {
-    console.log('handle');
     this.todo = e.target.value;
   }
 
