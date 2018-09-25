@@ -25,6 +25,7 @@ export class ToDo extends LitElement {
     this.createNewToDoItem = this.createNewToDoItem.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   todoItem(todo) {
@@ -49,14 +50,14 @@ export class ToDo extends LitElement {
   }
 
   handleInput(e) {
-    console.log('handle');
     this.todo = e.target.value;
   }
 
 
   // this is now being emitted back to the parent from the child component
-  deleteItem(indexToDelete) {
-    this.list = this.list.filter((toDo, index) => index !== indexToDelete);
+  deleteItem(e) {
+    const todo = e.detail.todo;
+    this.list = this.list.filter(item => item !== todo);
   }
 
 
@@ -76,7 +77,7 @@ export class ToDo extends LitElement {
               return html`
                 <to-do-item
                   item=${item.todo}
-                  .deleteItem=${this.deleteItem.bind(this, key)}
+                  @delete=${this.deleteItem}
                 ></to-do-item>
               `;
             }

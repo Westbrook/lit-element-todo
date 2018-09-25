@@ -9,8 +9,21 @@ export class ToDoItem extends LitElement {
   static get properties() {
     return {
       item: {type: String},
-      deleteItem: {type: Function},
     };
+  }
+
+  constructor() {
+    super();
+    this.deleteItem = this.deleteItem.bind(this);
+  }
+
+  deleteItem() {
+    const event = new CustomEvent('delete', {
+      bubbles: true,
+      composed: true,
+      detail: {todo: this.todo}
+    });
+    this.dispatchEvent(event);
   }
 
   render() {
@@ -18,9 +31,10 @@ export class ToDoItem extends LitElement {
     ${style}
     <div class="ToDoItem">
       <p class="ToDoItem-Text">${this.item}</p>
-      <button class="ToDoItem-Delete"
-        @click=${this.deleteItem}>-
-      </button>
+      <button
+        class="ToDoItem-Delete"
+        @click=${this.deleteItem}
+      >-</button>
     </div>
     `;
   }
