@@ -1,4 +1,4 @@
-import {LitElement, html} from '@polymer/lit-element/lit-element.js';
+import {LitElement, html} from 'lit-element/lit-element.js';
 import {style} from './ToDoItem-styles.js';
 
 export class ToDoItem extends LitElement {
@@ -13,15 +13,18 @@ export class ToDoItem extends LitElement {
     };
   }
 
+  static get styles() {
+    return [style];
+  }
+
   render() {
     return html`
-    ${style}
-    <div class="ToDoItem">
-      <p class="ToDoItem-Text">${this.item}</p>
-      <button class="ToDoItem-Delete"
-        @click=${this.deleteItem}>-
-      </button>
-    </div>
+      <div class="ToDoItem">
+        <p class="ToDoItem-Text">${this.item}</p>
+        <button class="ToDoItem-Delete"
+          @click=${this.deleteItem}>-
+        </button>
+      </div>
     `;
   }
 }
