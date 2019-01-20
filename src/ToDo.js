@@ -52,7 +52,7 @@ export class ToDo extends LitElement {
   // this is now being emitted back to the parent from the child component
   deleteItem(e) {
     const todo = e.detail.todo;
-    this.list = this.list.filter(item => item !== todo);
+    this.list = this.list.filter(item => item.todo !== todo);
   }
 
   static get styles() {

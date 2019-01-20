@@ -16,7 +16,7 @@ export class ToDoItem extends LitElement {
     const event = new CustomEvent('delete', {
       bubbles: true,
       composed: true,
-      detail: {todo: this.todo}
+      detail: {todo: this.item}
     });
     this.dispatchEvent(event);
   }
